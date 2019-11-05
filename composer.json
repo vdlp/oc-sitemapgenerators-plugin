@@ -1,0 +1,22 @@
+{
+    "name": "vdlp/oc-sitemapgenerators-plugin",
+    "description": "Provides Sitemap Generators for the Vdlp.Sitemap plugin",
+    "type": "october-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Van der Let & Partners",
+            "email": "octobercms@vdlp.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1"
+    },
+    "archive": {
+        "exclude": [
+            ".gitignore",
+            ".idea/"
+        ]
+    }
+}
