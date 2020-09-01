@@ -7,16 +7,8 @@ namespace Vdlp\SitemapGenerators\Classes\EventListeners;
 use Vdlp\SitemapGenerators\Classes\Generators\CmsPagesGenerator;
 use Vdlp\SitemapGenerators\Classes\Generators\RainLabPagesGenerator;
 
-/**
- * Class RegisterSitemapGenerators
- *
- * @package Vdlp\SitemapGenerators\Classes\EventListeners
- */
 final class RegisterSitemapGenerators
 {
-    /**
-     * @return array
-     */
     public function handle(): array
     {
         $generators = [];

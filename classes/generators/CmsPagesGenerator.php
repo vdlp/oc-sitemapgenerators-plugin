@@ -13,11 +13,6 @@ use Throwable;
 use Vdlp\Sitemap\Classes\Contracts\DefinitionGenerator;
 use Vdlp\Sitemap\Classes\Dto;
 
-/**
- * Class CmsPagesGenerator
- *
- * @package Vdlp\SitemapGenerators\Classes\Generators
- */
 final class CmsPagesGenerator implements DefinitionGenerator
 {
     /**
@@ -25,17 +20,11 @@ final class CmsPagesGenerator implements DefinitionGenerator
      */
     private $log;
 
-    /**
-     * @param LoggerInterface $log
-     */
     public function __construct(LoggerInterface $log)
     {
         $this->log = $log;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getDefinitions(): Dto\Definitions
     {
         $definitions = new Dto\Definitions();

@@ -7,16 +7,13 @@ namespace Vdlp\SitemapGenerators\Classes\Generators;
 use Carbon\Carbon;
 use Cms\Classes\Theme;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Psr\Log\LoggerInterface;
 use RainLab\Pages\Classes\Page;
 use RainLab\Pages\Classes\PageList;
+use Throwable;
 use Vdlp\Sitemap\Classes\Contracts\DefinitionGenerator;
 use Vdlp\Sitemap\Classes\Dto;
 
-/**
- * Class RainLabPagesGenerator
- *
- * @package Vdlp\SitemapGenerators\Classes\Generators
- */
 final class RainLabPagesGenerator implements DefinitionGenerator
 {
     /**
@@ -25,16 +22,16 @@ final class RainLabPagesGenerator implements DefinitionGenerator
     private $urlGenerator;
 
     /**
-     * @param UrlGenerator $urlGenerator
+     * @var LoggerInterface
      */
-    public function __construct(UrlGenerator $urlGenerator)
+    private $log;
+
+    public function __construct(UrlGenerator $urlGenerator, LoggerInterface $log)
     {
         $this->urlGenerator = $urlGenerator;
+        $this->log = $log;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getDefinitions(): Dto\Definitions
     {
         $definitions = new Dto\Definitions();
@@ -48,18 +45,21 @@ final class RainLabPagesGenerator implements DefinitionGenerator
 
         /** @var Page $page */
         foreach ($pageList->listPages() as $page) {
-            if ((bool) $page->getViewBag()->property('is_hidden')) {
-                continue;
-            }
+            try {
+                if ((bool) $page->getViewBag()->property('is_hidden')) {
+                    continue;
+                }
 
-            /** @noinspection PhpUnhandledExceptionInspection */
-            $definitions->addItem(
-                (new Dto\Definition)
-                    ->setUrl($this->urlGenerator->to($page->getViewBag()->property('url')))
-                    ->setPriority(2)
-                    ->setChangeFrequency(Dto\Definition::CHANGE_FREQUENCY_DAILY)
-                    ->setModifiedAt(Carbon::createFromTimestamp($page->getAttribute('mtime')))
-            );
+                $definitions->addItem(
+                    (new Dto\Definition)
+                        ->setUrl($this->urlGenerator->to($page->getViewBag()->property('url')))
+                        ->setPriority(2)
+                        ->setChangeFrequency(Dto\Definition::CHANGE_FREQUENCY_DAILY)
+                        ->setModifiedAt(Carbon::createFromTimestamp($page->getAttribute('mtime')))
+                );
+            } catch (Throwable $e) {
+                $this->log->error($e);
+            }
         }
 
         return $definitions;

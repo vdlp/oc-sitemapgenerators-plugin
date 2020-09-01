@@ -1,6 +1,22 @@
-# VDLP SitemapGenerators plugin
+<p align="center">
+	<img height="60px" width="60px" src="https://plugins.vdlp.nl/octobercms/icons/Vdlp.SitemapGenerators.svg">
+	<h1 align="center">Vdlp.SitemapGenerators</h1>
+</p>
 
-This plugin provides Sitemap generators for October CMS.
+<p align="center">
+	<em>This plugin provides Sitemap generators for October CMS.</em>
+</p>
+
+<p align="center">
+	<img src="https://badgen.net/packagist/php/vdlp/oc-sitemapgenerators-plugin">
+	<img src="https://badgen.net/packagist/license/vdlp/oc-sitemapgenerators-plugin">
+	<img src="https://badgen.net/packagist/v/vdlp/oc-sitemapgenerators-plugin/latest">
+	<img src="https://badgen.net/badge/cms/October%20CMS">
+	<img src="https://badgen.net/badge/type/plugin">
+	<img src="https://plugins.vdlp.nl/octobercms/badge/installations.php?plugin=vdlp-sitemapgenerators">
+</p>
+
+## General
 
 Currently the following page types are supported:
 
@@ -13,7 +29,7 @@ Feel free to create a PR (from `develop` branch) and submit your ideas.
 ## Requirements
 
 - PHP 7.1 or higher
-- This plugin requires the `Vdlp.Sitemap` plugin. 
+- This plugin requires the `Vdlp.Sitemap` plugin.
 - October CMS (preferably the latest version).
 
 ## Configuration
