@@ -13,11 +13,11 @@ final class RegisterSitemapGenerators
     {
         $generators = [];
 
-        if (config('vdlp.sitemapgenerators::generator_rainlab_pages_enabled')) {
+        if ((bool) config('sitemapgenerators.generator_rainlab_pages_enabled', true)) {
             $generators[] = resolve(RainLabPagesGenerator::class);
         }
 
-        if (config('vdlp.sitemapgenerators::generator_cms_pages_enabled')) {
+        if ((bool) config('sitemapgenerators.generator_cms_pages_enabled', true)) {
             $generators[] = resolve(CmsPagesGenerator::class);
         }
 
