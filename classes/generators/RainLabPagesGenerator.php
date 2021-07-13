@@ -16,15 +16,8 @@ use Vdlp\Sitemap\Classes\Dto;
 
 final class RainLabPagesGenerator implements DefinitionGenerator
 {
-    /**
-     * @var UrlGenerator
-     */
-    private $urlGenerator;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $log;
+    private UrlGenerator $urlGenerator;
+    private LoggerInterface $log;
 
     public function __construct(UrlGenerator $urlGenerator, LoggerInterface $log)
     {
@@ -36,8 +29,10 @@ final class RainLabPagesGenerator implements DefinitionGenerator
     {
         $definitions = new Dto\Definitions();
 
-        /** @noinspection ClassConstantCanBeUsedInspection */
-        if (!class_exists('\RainLab\Pages\Classes\Page')) {
+        if (
+            !class_exists('\RainLab\Pages\Classes\Page')
+            || !class_exists('\RainLab\Pages\Classes\PageList')
+        ) {
             return $definitions;
         }
 
@@ -51,14 +46,14 @@ final class RainLabPagesGenerator implements DefinitionGenerator
                 }
 
                 $definitions->addItem(
-                    (new Dto\Definition)
+                    (new Dto\Definition())
                         ->setUrl($this->urlGenerator->to($page->getViewBag()->property('url')))
                         ->setPriority(2)
                         ->setChangeFrequency(Dto\Definition::CHANGE_FREQUENCY_DAILY)
                         ->setModifiedAt(Carbon::createFromTimestamp($page->getAttribute('mtime')))
                 );
             } catch (Throwable $e) {
-                $this->log->error($e);
+                $this->log->error('Vdlp.SitemapGenerators: Unable to add sitemap definition: ' . $e->getMessage());
             }
         }
 

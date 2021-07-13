@@ -15,10 +15,7 @@ use Vdlp\Sitemap\Classes\Dto;
 
 final class CmsPagesGenerator implements DefinitionGenerator
 {
-    /**
-     * @var LoggerInterface
-     */
-    private $log;
+    private LoggerInterface $log;
 
     public function __construct(LoggerInterface $log)
     {
@@ -33,7 +30,8 @@ final class CmsPagesGenerator implements DefinitionGenerator
             /** @var CmsObjectCollection $pageList */
             $pageList = Theme::getActiveTheme()->listPages();
         } catch (Throwable $e) {
-            $this->log->error($e);
+            $this->log->error('Vdlp.SitemapGenerators: Unable to list theme pages: ' . $e->getMessage());
+
             return $definitions;
         }
 
@@ -44,16 +42,18 @@ final class CmsPagesGenerator implements DefinitionGenerator
             }
 
             try {
+                /** @var ?string $url */
                 $url = Page::url($page->getId());
             } catch (Throwable $e) {
-                $this->log->error($e);
+                $this->log->error('Vdlp.SitemapGenerators: Unable to create page URL: ' . $e->getMessage());
+
                 continue;
             }
 
-            if (!empty($url)) {
+            if ($url !== null && $url !== '') {
                 /** @noinspection PhpUnhandledExceptionInspection */
                 $definitions->addItem(
-                    (new Dto\Definition)
+                    (new Dto\Definition())
                         ->setUrl($url)
                         ->setPriority(2)
                         ->setChangeFrequency(Dto\Definition::CHANGE_FREQUENCY_DAILY)

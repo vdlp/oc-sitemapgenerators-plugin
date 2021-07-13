@@ -11,12 +11,14 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.1||^8.0",
+        "php": "^7.4 || ^8.0",
+        "vdlp/oc-sitemap-plugin": "^2.0",
         "composer/installers": "^1.0"
     },
     "archive": {
         "exclude": [
             ".gitignore",
+            ".github",
             ".idea/"
         ]
     }

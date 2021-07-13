@@ -28,11 +28,17 @@ Feel free to create a PR (from `develop` branch) and submit your ideas.
 
 ## Requirements
 
-- PHP 7.1 or higher
+- PHP 7.4 or higher
 - This plugin requires the `Vdlp.Sitemap` plugin.
 - October CMS (preferably the latest version).
 
 ## Configuration
+
+Add the plugin configuration to your config folder:
+
+```
+php artisan vendor:publish --provider="Vdlp\SitemapGenerators\ServiceProvider" --tag="config"
+```
 
 Add the following lines to the `.env` file of your project:
 
