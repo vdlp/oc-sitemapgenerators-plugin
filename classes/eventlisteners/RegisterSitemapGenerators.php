@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Vdlp\SitemapGenerators\Classes\EventListeners;
 
 use Vdlp\SitemapGenerators\Classes\Generators\CmsPagesGenerator;
+use Vdlp\SitemapGenerators\Classes\Generators\RainLabBlogGenerator;
 use Vdlp\SitemapGenerators\Classes\Generators\RainLabPagesGenerator;
 
 final class RegisterSitemapGenerators
@@ -15,6 +16,10 @@ final class RegisterSitemapGenerators
 
         if ((bool) config('sitemapgenerators.generator_rainlab_pages_enabled', true)) {
             $generators[] = resolve(RainLabPagesGenerator::class);
+        }
+
+        if ((bool) config('sitemapgenerators.generator_rainlab_blog_enabled', true)) {
+            $generators[] = resolve(RainLabBlogGenerator::class);
         }
 
         if ((bool) config('sitemapgenerators.generator_cms_pages_enabled', true)) {

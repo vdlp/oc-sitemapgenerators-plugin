@@ -14,7 +14,7 @@ use Vdlp\Sitemap\Classes\Contracts\DefinitionGenerator;
 use Vdlp\Sitemap\Classes\Dto\Definition;
 use Vdlp\Sitemap\Classes\Dto\Definitions;
 
-final class RainlabBlogGenerator implements DefinitionGenerator
+final class RainLabBlogGenerator implements DefinitionGenerator
 {
     /* @var UrlGenerator */
     private $urlGenerator;

@@ -17,6 +17,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | RainLab.Blog enabled
+    |--------------------------------------------------------------------------
+    |
+    | Enable generators for the RainLab.Blog plugin (default = true).
+    |
+    */
+
+    'generator_rainlab_blog_enabled' => (bool) env('VDLP_SITEMAP_GENERATORS_RAINLAB_BLOG_ENABLED', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Cms Pages enabled
     |--------------------------------------------------------------------------
     |
