@@ -73,6 +73,11 @@ final class RainLabBlogGenerator implements DefinitionGenerator
                 $slugParam = $this->stripTwigTags($page->attributes['blogPost']['slug'] ?? ':slug');
 
                 foreach ($posts as $post) {
+                    // only include published posts
+                    if (!$post->getAttribute('published')) {
+                        continue;
+                    }
+                    
                     $definitionUrl = str_replace($slugParam, $post->getAttribute('slug'), $url);
 
                     /** @noinspection PhpUnhandledExceptionInspection */
