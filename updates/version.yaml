@@ -2,3 +2,4 @@
 1.0.1: Code improvements
 1.1.0: Update plugin dependencies
 2.0.0: "!!! Add support for PHP 7.4 or higher. Please review plugin configuration, check README.md"
+2.1.0: Support RainLab.Blog plugin
