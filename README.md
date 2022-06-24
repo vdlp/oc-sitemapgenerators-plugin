@@ -28,9 +28,9 @@ Feel free to create a PR (from `develop` branch) and submit your ideas.
 
 ## Requirements
 
-- PHP 7.4 or higher
+- PHP 8.0.2 or higher
 - This plugin requires the `Vdlp.Sitemap` plugin.
-- October CMS (preferably the latest version).
+- October CMS 2.x or 3.x
 
 ## Configuration
 

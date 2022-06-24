@@ -1,25 +1,35 @@
 {
     "name": "vdlp/oc-sitemapgenerators-plugin",
     "description": "Provides Sitemap Generators for the Vdlp.Sitemap plugin",
-    "type": "october-plugin",
     "license": "GPL-2.0-only",
+    "type": "october-plugin",
     "authors": [
         {
             "name": "Van der Let & Partners",
             "email": "octobercms@vdlp.nl"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
-        "php": "^7.4 || ^8.0",
-        "vdlp/oc-sitemap-plugin": "^2.0",
-        "composer/installers": "^1.0"
+        "php": "^8.0.2",
+        "composer/installers": "^1.0 || ^2.0",
+        "october/system": "^2.2",
+        "vdlp/oc-sitemap-plugin": "^2.1"
     },
+    "suggest": {
+        "rainlab/pages-plugin": "This plugin has support for the RainLab.Pages plugin."
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://gateway.octobercms.com"
+        }
+    ],
+    "minimum-stability": "stable",
     "archive": {
         "exclude": [
-            ".gitignore",
+            ".gitattributes",
             ".github",
-            ".idea/"
+            ".gitignore"
         ]
     }
 }
