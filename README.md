@@ -18,7 +18,7 @@
 
 ## General
 
-Currently the following page types are supported:
+This plugin supports the following page types:
 
 - `RainLab.Pages` Page
 - October CMS Page
@@ -30,21 +30,21 @@ Feel free to create a PR (from `develop` branch) and submit your ideas.
 
 - PHP 8.0.2 or higher
 - This plugin requires the `Vdlp.Sitemap` plugin.
-- October CMS 2.x or 3.x
+- October CMS 3.x
 
 ## Configuration
 
 Add the plugin configuration to your config folder:
 
-```
+```shell
 php artisan vendor:publish --provider="Vdlp\SitemapGenerators\ServiceProvider" --tag="config"
 ```
 
 Add the following lines to the `.env` file of your project:
 
-```
-VDLP_SITEMAP_GENERATORS_RAINLAB_PAGES_ENABLED = true
-VDLP_SITEMAP_GENERATORS_CMS_PAGES_ENABLED = true
+```ini
+VDLP_SITEMAP_GENERATORS_RAINLAB_PAGES_ENABLED=true
+VDLP_SITEMAP_GENERATORS_CMS_PAGES_ENABLED=true
 ```
 
 To exclude specific URLs from your `sitemap.xml` please refer to the documentation of the `Vdlp.Sitemap` plugin which can be found here: https://github.com/vdlp/oc-sitemap-plugin/blob/master/README.md

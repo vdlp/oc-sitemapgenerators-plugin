@@ -3,3 +3,4 @@ v1.0.1: Code improvements
 v1.1.0: Update plugin dependencies
 v2.0.0: "Add support for PHP 7.4 or higher. Please review plugin configuration, check README.md"
 v2.1.0: "Maintenance update. Check CHANGELOG.md for details."
+v2.2.0: "Maintenance update. Check CHANGELOG.md for details."

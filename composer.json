@@ -12,8 +12,8 @@
     "require": {
         "php": "^8.0.2",
         "composer/installers": "^1.0 || ^2.0",
-        "october/system": "^2.2",
-        "vdlp/oc-sitemap-plugin": "^2.1"
+        "october/rain": "^3.0",
+        "vdlp/oc-sitemap-plugin": "^2.3"
     },
     "suggest": {
         "rainlab/pages-plugin": "This plugin has support for the RainLab.Pages plugin."
