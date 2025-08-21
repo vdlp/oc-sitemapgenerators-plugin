@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2025-08-21
+
 * Add support for October CMS 4.x
 
 ## [2.2.1] - 2023-05-31
