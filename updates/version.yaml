@@ -5,3 +5,4 @@ v2.0.0: "Add support for PHP 7.4 or higher. Please review plugin configuration, 
 v2.1.0: "Maintenance update. Check CHANGELOG.md for details."
 v2.2.0: "Maintenance update. Check CHANGELOG.md for details."
 v2.2.1: "Update composer configuration."
+v3.0.0: "Add support for October CMS 4.x."
