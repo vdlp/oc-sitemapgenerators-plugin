@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Cms\Classes\CmsObjectCollection;
 use Cms\Classes\Page;
 use Cms\Classes\Theme;
+use Cms\Helpers\Cms;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use Vdlp\Sitemap\Classes\Contracts\DefinitionGenerator;
@@ -17,8 +18,10 @@ final class CmsPagesGenerator implements DefinitionGenerator
 {
     private LoggerInterface $log;
 
-    public function __construct(LoggerInterface $log)
-    {
+    public function __construct(
+        LoggerInterface $log,
+        private Cms $cms,
+    ) {
         $this->log = $log;
     }
 
@@ -43,7 +46,7 @@ final class CmsPagesGenerator implements DefinitionGenerator
 
             try {
                 /** @var ?string $url */
-                $url = Page::url($page->getId());
+                $url = $this->cms->pageUrl($page->getId());
             } catch (Throwable $e) {
                 $this->log->error('Vdlp.SitemapGenerators: Unable to create page URL: ' . $e->getMessage());
 
