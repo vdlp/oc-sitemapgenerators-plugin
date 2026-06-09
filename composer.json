@@ -3,6 +3,7 @@
     "description": "Provides Sitemap Generators for the Vdlp.Sitemap plugin",
     "license": "GPL-2.0-only",
     "type": "october-plugin",
+    "abandoned": true,
     "authors": [
         {
             "name": "Van der Let & Partners",
